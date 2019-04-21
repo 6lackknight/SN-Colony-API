@@ -109,4 +109,4 @@ app.post("/colony/create", upload.array(), async(req, res, next) => {
 	res.status(200).json(result)
 })
 
-app.listen(3000, () => console.log("API running on port :3000! \n OPG out."))
+app.listen(80, () => console.log("API running on port :3000! \n OPG out."))
