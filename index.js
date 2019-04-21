@@ -30,18 +30,6 @@ app.post("/colony/domains/create", upload.array(), async(req, res, next) =>{
 
 })
 
-app.post("/colony/domains/tasks/create", upload.array(), async(req, res, next) =>{
-	task = req.body
-	created_task = await colonyClient.createTask.send({
-		task.specificationHash,
-		task.domainId,
-		task.skillId,
-		task.dueDate,
-	});
-
-	res.status(200).json(created_task)
-})
-
 app.get("/colony/domains/count", async(req, res, next) => {
 	domain_count = await colonyClient.getDomainCount.call()
 	res.status(200).json(domain_count)
