@@ -11,18 +11,35 @@ const BN = require("bn.js")
 const app = express()
 const upload = multer()
 
-var colonyClient = null;
+var colonyClient = null
 
 app.use(bodyParser.urlencoded({ extended: true }))
 app.use(bodyParser.json({ extended: true, limit: "1mb" }))
+
+
+app.post("/", upload.array(), async(req, res, next) =>{
+	console.log(req.body)
+})
 
 app.post("/colony/domains/create", upload.array(), async(req, res, next) =>{
 	var task_specifics = req.body
 
 	// Create a domain
-	new_domain = await colonyClient.addDomain.send({ parentDomainId: 1 });
+	new_domain = await colonyClient.addDomain.send({ parentDomainId: 1 })
 	res.status(200).json({ new_domain })
 
+})
+
+app.post("/colony/domains/tasks/create", upload.array(), async(req, res, next) =>{
+	task = req.body
+	created_task = await colonyClient.createTask.send({
+		task.specificationHash,
+		task.domainId,
+		task.skillId,
+		task.dueDate,
+	});
+
+	res.status(200).json(created_task)
 })
 
 app.get("/colony/domains/count", async(req, res, next) => {
@@ -32,7 +49,7 @@ app.get("/colony/domains/count", async(req, res, next) => {
 
 app.get("/colony/domains/view/:id", async(req, res, next) =>{
 	// Create a domain
-	found_domain = await colonyClient.getDomain.call({ domainId: req.params.id });
+	found_domain = await colonyClient.getDomain.call({ domainId: req.params.id })
 	res.status(200).json(found_domain)
 })
 
@@ -101,7 +118,7 @@ app.post("/colony/create", upload.array(), async(req, res, next) => {
 
 	console.log("Colony Successfully Created: ", result)
 
-	res.status(200).json(result);
+	res.status(200).json(result)
 })
 
-app.listen(80, () => console.log("API running on port :3000! \n OPG out."))
+app.listen(3000, () => console.log("API running on port :3000! \n OPG out."))
