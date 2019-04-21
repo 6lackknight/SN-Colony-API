@@ -1,0 +1,14 @@
+{
+  "name": "SN-Colony",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "dependencies": {
+    "@colony/colony-js-client": "^1.11.2",
+    "@colony/purser-software": "^1.2.4",
+    "bn.js": "^4.11.8",
+    "body-parser": "^1.18.3",
+    "docker-cli": "^0.0.2",
+    "multer": "^1.4.1"
+  }
+}

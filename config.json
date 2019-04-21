@@ -1,0 +1,8 @@
+{
+    wallet: "DF39C0088950E6B14D28AC5E33FFCA134FC1671EB947DC72C65C29862C3CF85A",
+    testNet: "rinkeby",
+    tokenSymbol: "VNM",
+    adminAddress: "0xD447E2a66f50EB067a9bFe52296354C629fD2214",
+    tokenOwner: "0x7cF14c919b69005BB909AC33e284F3a9DbFB6f05",
+    mintAmount: 18
+}
